@@ -14,15 +14,15 @@ console.info({ answer });
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
   const hasEnded = guesses.length === NUM_OF_GUESSES_ALLOWED;
-  const hasWon = !hasEnded
-    ? false
-    : guesses.some((g) => g.result.every((r) => r.status === "correct"));
+  const hasWon = guesses.some((g) =>
+    g.result.every((r) => r.status === "correct")
+  );
 
   return (
     <>
       <GuessResults guesses={guesses} />
       <Input
-        disabled={hasEnded}
+        disabled={hasWon || hasEnded}
         onSubmit={(guess) =>
           setGuesses([
             ...guesses,
