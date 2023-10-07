@@ -25,7 +25,7 @@ function GuessCell({ children, className }) {
 function EmptyGuess() {
   return (
     <Guess>
-      {range(NUM_OF_GUESSES_ALLOWED - 1).map((i) => (
+      {range(5).map((i) => (
         <GuessCell key={i} />
       ))}
     </Guess>
