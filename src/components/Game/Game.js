@@ -49,6 +49,7 @@ function Input({ disabled, onSubmit }) {
         if (disabled) return;
         e.preventDefault();
         onSubmit(guess);
+        setGuess("");
       }}
     >
       <label htmlFor="guess-input">Enter guess:</label>
