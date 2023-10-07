@@ -57,6 +57,7 @@ function Input({ disabled, onSubmit }) {
         id="guess-input"
         type="text"
         pattern="[a-zA-Z]{5,5}"
+        required
         maxLength={5}
         value={guess}
         onChange={(e) => setGuess(e.target.value.toUpperCase())}
