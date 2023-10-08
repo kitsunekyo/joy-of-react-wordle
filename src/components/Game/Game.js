@@ -45,17 +45,19 @@ function Game() {
       <Input disabled={hasWon || hasEnded} onSubmit={handleSubmit} />
       <Keyboard guesses={guesses} />
       {hasWon && (
-        <Banner className="happy" onRestart={restart}>
+        <Banner variant="happy">
           <p>
             <strong>Congratulations!</strong> Got it in
             <strong>{guesses.length} guesses</strong>.
+            <RestartButton onClick={restart} />
           </p>
         </Banner>
       )}
       {hasEnded && !hasWon && (
-        <Banner className="sad" onRestart={restart}>
+        <Banner variant="sad">
           <p>
             Sorry, the correct answer is <strong>{answer}</strong>.
+            <RestartButton onClick={restart} />
           </p>
         </Banner>
       )}
@@ -64,3 +66,11 @@ function Game() {
 }
 
 export default Game;
+
+function RestartButton({ onClick }) {
+  return (
+    <button onClick={onClick} className="button">
+      Restart Game
+    </button>
+  );
+}
